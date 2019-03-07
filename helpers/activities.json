@@ -1,0 +1,100 @@
+{
+  "activities": [
+    {
+      "name": "coding",
+      "time": {
+        "exact": false,
+        "duration": {
+          "hours": 2
+        },
+        "start": {
+          "hour": 19
+        }
+      },
+      "override": false
+    },
+    {
+      "name": "sleeping",
+      "time": {
+        "exact": false,
+        "start": {
+          "hour": 23
+        },
+        "duration": {
+          "hours": 2
+        }
+      },
+      "override": false
+    },
+    {
+      "name": "learning",
+      "time": [{
+        "exact": false,
+        "start": {
+          "hour": 8
+        },
+        "duration": {
+          "hours": 1,
+          "minutes": 15
+        },
+        "days": [2, 4]
+      },
+      {
+        "exact": false,
+        "start": {
+          "hour": 9,
+          "minute": 15
+        },
+        "duration": {
+          "hours": 1,
+          "minutes": 30
+        },
+        "days": [2]
+      }],
+      "override": false
+    },
+    {
+      "name": "working",
+      "time": {
+        "exact": false,
+        "start": {
+          "hour": 8,
+          "minute": 30
+        },
+        "duration": {
+          "hours": 8,
+          "minutes": 30
+        },
+        "days": [1, 3, 4, 5]
+      },
+      "override": false
+    },
+    {
+      "name": "cooking",
+      "time": {
+        "exact": false,
+        "start": {
+          "hour": 18
+        },
+        "duration": {
+          "minutes": 30
+        }
+      },
+      "override": false
+    },
+    {
+      "name": "eating",
+      "time": {
+        "exact": false,
+        "start": {
+          "hour": 18,
+          "minute": 30
+        },
+        "duration": {
+          "minute": 30
+        }
+      },
+      "override": false
+    }
+  ]
+}
