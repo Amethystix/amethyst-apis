@@ -4,13 +4,20 @@
  */
 
 const router = require('express').Router();
+const db = require('../db');
 
 /**
  * Gets list of all blog entries
  */
-router.get('/all', (req, res, next) => {
-  // Placeholder
-  res.json({message: 'No blogs yet'});
+router.get('/all', async (req, res, next) => {
+  db.collection('blogs').get()
+    .then((blogDocs) => {
+      const blogs = [];
+      blogDocs.forEach(blog => blogs.push(blog.data()));
+      res.json({blogs});
+    }, (err) => {
+      res.json({err});
+    });
 });
 
 // Allow user to post a comment, passing blog id in body
@@ -41,3 +48,5 @@ router.get('/search', (req, res, next) => {
     // Give back all blogs
   }
 });
+
+module.exports = router;
