@@ -25,6 +25,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.set('Access-Control-Allow-Methods', 'GET,PUT,POST,OPTIONS');
+  res.set('Access-Control-Allow-Headers', 'Cache-Control,Content-Type,Authorization');
+  next();
+});
+
 app.use('/', indexRouter);
 app.use('/amethyst', amethystRouter);
 app.use('/blog', blogRouter);
