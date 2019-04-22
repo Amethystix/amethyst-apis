@@ -16,7 +16,7 @@ router.get('/all', async (req, res, next) => {
       blogDocs.forEach(blog => blogs.push(blog.data()));
       res.json({blogs});
     }, (err) => {
-      res.json({err});
+      next(err);
     });
 });
 
@@ -34,8 +34,17 @@ router.post('/comment', (req, res, next) => {
 /**
  * Gets specified blog
  */
-router.get('/:id', (req, res, next) => {
-
+router.get('/:slug', (req, res, next) => {
+  console.log(req.params.slug)
+  db.collection('blogs').where('slug', '==', req.params.slug)
+    .limit(1).get()
+      .then((blogDocs) => {
+        const blog = blogDocs.docs[0].data();
+        res.json({blog});
+      })
+      .catch((err) => {
+        next(err);
+      })
 });
 
 /**
